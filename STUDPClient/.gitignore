@@ -1,0 +1,12 @@
+# Compiled files
+/bin/Debug/*.exe
+/bin/Debug/*.pdb
+/bin/Debug/*.config
+/bin/Debug/*.manifest
+
+/bin/Release/*.exe
+/bin/Release/*.pdb
+/bin/Release/*.config
+/bin/Release/*.manifest
+
+/obj
