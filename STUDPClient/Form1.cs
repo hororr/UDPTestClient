@@ -15,6 +15,8 @@ namespace STUDPClient
 {
     public partial class Form1 : Form
     {
+        int programType;
+        
         //Byte[] SOF = new Byte[3] { (Byte)'S', (Byte)'O', (Byte)'F' };
         //Byte[] EOF = new Byte[3] { (Byte)'E', (Byte)'O', (Byte)'F' };
         //Byte[] UDPpacket = new Byte[913];
@@ -111,10 +113,20 @@ namespace STUDPClient
         private int counter = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+            if (counter >= 900)
+                counter = 0;
+
             //CreateUDPPacket();
             UDPMessage msg = new UDPMessage(300,3);
-            msg.data24[counter++] = 255;
+            if (programType == 1)
+            {
+                msg.data24[counter++] = 255;
+            }
+            else if (programType == 2) {
+                msg.data24[counter++] = 255;
+                msg.data24[counter++] = 255;
+                msg.data24[counter++] = 255;
+            }
             msg.FinalizePacket();
             
             //send
@@ -143,6 +155,7 @@ namespace STUDPClient
         private void button1_Click(object sender, EventArgs e)
         {
             setTimerInterval();
+            programType = 1;
             timer1.Start();
                         
         }
@@ -150,15 +163,23 @@ namespace STUDPClient
         private void button3_Click(object sender, EventArgs e)
         {
             timer1.Stop();
+            counter = 0;
         }
 
         Socket sock;
         IPEndPoint endPoint;
         private void Form1_Load(object sender, EventArgs e)
         {
-            sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            //sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //IPAddress serverAddr = IPAddress.Parse("255.255.255.255");
-            endPoint = new IPEndPoint(IPAddress.Broadcast, 11000);
+            //endPoint = new IPEndPoint(IPAddress.Broadcast, 11000);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            setTimerInterval();
+            programType = 2;
+            timer1.Start();
         }
     }
 }
