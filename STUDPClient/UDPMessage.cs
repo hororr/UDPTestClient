@@ -63,6 +63,10 @@ namespace STUDPClient
             {
                 ledArrayLength = 1;
             }
+            else if (typeOfPacket == 20)
+            {
+                ledArrayLength = 1;
+            }
             header = new THeader();
             data24 = new Byte[ledArrayLength];
             UDPpacket = new Byte[ledArrayLength + 8 + 3 + 3];

@@ -128,5 +128,19 @@ namespace STUDPClient
             client.Send(msg.UDPpacket, msg.UDPpacket.Length, ip);
             client.Close(); 
         }
+
+        private void button_prg_Click(object sender, EventArgs e)
+        {
+            byte prg = (byte)Int32.Parse(textBox_prg.Text);
+            UDPMessage msg = new UDPMessage(1, 20);
+            msg.data24[0] = prg;
+            msg.FinalizePacket();
+
+            UdpClient client = new UdpClient();
+            IPEndPoint ip = new IPEndPoint(IPAddress.Broadcast, 8081);
+            client.Send(msg.UDPpacket, msg.UDPpacket.Length, ip);
+            client.Close(); 
+
+        }
     }
 }

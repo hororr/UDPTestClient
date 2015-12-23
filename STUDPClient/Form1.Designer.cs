@@ -41,6 +41,8 @@
             this.button_manual = new System.Windows.Forms.Button();
             this.button_setfps = new System.Windows.Forms.Button();
             this.textBox_fps = new System.Windows.Forms.TextBox();
+            this.textBox_prg = new System.Windows.Forms.TextBox();
+            this.button_prg = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,11 +145,31 @@
             this.textBox_fps.TabIndex = 10;
             this.textBox_fps.Text = "25";
             // 
+            // textBox_prg
+            // 
+            this.textBox_prg.Location = new System.Drawing.Point(132, 300);
+            this.textBox_prg.Name = "textBox_prg";
+            this.textBox_prg.Size = new System.Drawing.Size(100, 20);
+            this.textBox_prg.TabIndex = 11;
+            this.textBox_prg.Text = "0";
+            // 
+            // button_prg
+            // 
+            this.button_prg.Location = new System.Drawing.Point(31, 297);
+            this.button_prg.Name = "button_prg";
+            this.button_prg.Size = new System.Drawing.Size(75, 23);
+            this.button_prg.TabIndex = 12;
+            this.button_prg.Text = "Set PRG";
+            this.button_prg.UseVisualStyleBackColor = true;
+            this.button_prg.Click += new System.EventHandler(this.button_prg_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(576, 394);
+            this.Controls.Add(this.button_prg);
+            this.Controls.Add(this.textBox_prg);
             this.Controls.Add(this.textBox_fps);
             this.Controls.Add(this.button_setfps);
             this.Controls.Add(this.button_manual);
@@ -181,6 +203,8 @@
         private System.Windows.Forms.Button button_manual;
         private System.Windows.Forms.Button button_setfps;
         private System.Windows.Forms.TextBox textBox_fps;
+        private System.Windows.Forms.TextBox textBox_prg;
+        private System.Windows.Forms.Button button_prg;
     }
 }
 
