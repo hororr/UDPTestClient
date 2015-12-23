@@ -43,9 +43,26 @@ namespace STUDPClient
             leds = _leds;
             typeOfPacket = _type;
             if (typeOfPacket == 3)
+            {
                 ledArrayLength = (int)(leds * 3);
-            else
-                ledArrayLength = (int)(leds * 3);
+                data24 = new Byte[ledArrayLength];
+            }
+            else if (typeOfPacket == 50)
+            {
+                ledArrayLength = 0;
+            }
+            else if (typeOfPacket == 51)
+            {
+                ledArrayLength = 0;
+            }
+            else if (typeOfPacket == 52)
+            {
+                ledArrayLength = 0;
+            }
+            else if (typeOfPacket == 60)
+            {
+                ledArrayLength = 1;
+            }
             header = new THeader();
             data24 = new Byte[ledArrayLength];
             UDPpacket = new Byte[ledArrayLength + 8 + 3 + 3];
@@ -73,7 +90,8 @@ namespace STUDPClient
             UDPpacket[9] = header.msgType;
             UDPpacket[10] = header.reserved;
 
-            Buffer.BlockCopy(data24, 0, UDPpacket, 3 + 8, ledArrayLength); //data 900
+            if (ledArrayLength>0)
+                Buffer.BlockCopy(data24, 0, UDPpacket, 3 + 8, ledArrayLength); //data 900
 
             Buffer.BlockCopy(EOF, 0, UDPpacket, 3 + 8 + ledArrayLength, 3); //EOF 3b
 

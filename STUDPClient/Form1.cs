@@ -80,5 +80,53 @@ namespace STUDPClient
             programType = 2;
             timer1.Start();
         }
+
+        private void button_test_Click(object sender, EventArgs e)
+        {
+            UDPMessage msg = new UDPMessage(0, 51);
+            msg.FinalizePacket();
+
+            UdpClient client = new UdpClient();
+            IPEndPoint ip = new IPEndPoint(IPAddress.Broadcast, 8081);
+            client.Send(msg.UDPpacket, msg.UDPpacket.Length, ip);
+            client.Close();
+
+        }
+
+        private void button_auto_Click(object sender, EventArgs e)
+        {
+            UDPMessage msg = new UDPMessage(0, 50);
+            msg.FinalizePacket();
+
+            UdpClient client = new UdpClient();
+            IPEndPoint ip = new IPEndPoint(IPAddress.Broadcast, 8081);
+            client.Send(msg.UDPpacket, msg.UDPpacket.Length, ip);
+            client.Close();
+        }
+
+        private void button_manual_Click(object sender, EventArgs e)
+        {
+            UDPMessage msg = new UDPMessage(0, 52);
+            msg.FinalizePacket();
+
+            UdpClient client = new UdpClient();
+            IPEndPoint ip = new IPEndPoint(IPAddress.Broadcast, 8081);
+            client.Send(msg.UDPpacket, msg.UDPpacket.Length, ip);
+            client.Close();
+        }
+
+        private void button_setfps_Click(object sender, EventArgs e)
+        {
+            byte fps = (byte)Int32.Parse(textBox_fps.Text);
+
+            UDPMessage msg = new UDPMessage(1, 60);
+            msg.data24[0] = fps;
+            msg.FinalizePacket();
+
+            UdpClient client = new UdpClient();
+            IPEndPoint ip = new IPEndPoint(IPAddress.Broadcast, 8081);
+            client.Send(msg.UDPpacket, msg.UDPpacket.Length, ip);
+            client.Close(); 
+        }
     }
 }
