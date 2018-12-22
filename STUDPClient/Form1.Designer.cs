@@ -43,7 +43,14 @@
             this.textBox_fps = new System.Windows.Forms.TextBox();
             this.textBox_prg = new System.Windows.Forms.TextBox();
             this.button_prg = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox_lednr = new System.Windows.Forms.TextBox();
+            this.gb_type = new System.Windows.Forms.GroupBox();
+            this.rb_rgb24_1 = new System.Windows.Forms.RadioButton();
+            this.rb_rgb24_2 = new System.Windows.Forms.RadioButton();
+            this.button_p3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.gb_type.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_p1
@@ -62,7 +69,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(31, 112);
+            this.button3.Location = new System.Drawing.Point(31, 138);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(122, 23);
             this.button3.TabIndex = 2;
@@ -163,11 +170,75 @@
             this.button_prg.UseVisualStyleBackColor = true;
             this.button_prg.Click += new System.EventHandler(this.button_prg_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(354, 297);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Led number";
+            // 
+            // textBox_lednr
+            // 
+            this.textBox_lednr.Location = new System.Drawing.Point(445, 290);
+            this.textBox_lednr.Name = "textBox_lednr";
+            this.textBox_lednr.Size = new System.Drawing.Size(100, 20);
+            this.textBox_lednr.TabIndex = 14;
+            this.textBox_lednr.Text = "100";
+            // 
+            // gb_type
+            // 
+            this.gb_type.Controls.Add(this.rb_rgb24_2);
+            this.gb_type.Controls.Add(this.rb_rgb24_1);
+            this.gb_type.Location = new System.Drawing.Point(357, 316);
+            this.gb_type.Name = "gb_type";
+            this.gb_type.Size = new System.Drawing.Size(100, 71);
+            this.gb_type.TabIndex = 17;
+            this.gb_type.TabStop = false;
+            this.gb_type.Text = "RGB24_type";
+            // 
+            // rb_rgb24_1
+            // 
+            this.rb_rgb24_1.AutoSize = true;
+            this.rb_rgb24_1.Location = new System.Drawing.Point(6, 19);
+            this.rb_rgb24_1.Name = "rb_rgb24_1";
+            this.rb_rgb24_1.Size = new System.Drawing.Size(85, 17);
+            this.rb_rgb24_1.TabIndex = 16;
+            this.rb_rgb24_1.Text = "RGB24_strip";
+            this.rb_rgb24_1.UseVisualStyleBackColor = true;
+            // 
+            // rb_rgb24_2
+            // 
+            this.rb_rgb24_2.AutoSize = true;
+            this.rb_rgb24_2.Checked = true;
+            this.rb_rgb24_2.Location = new System.Drawing.Point(6, 44);
+            this.rb_rgb24_2.Name = "rb_rgb24_2";
+            this.rb_rgb24_2.Size = new System.Drawing.Size(86, 17);
+            this.rb_rgb24_2.TabIndex = 17;
+            this.rb_rgb24_2.TabStop = true;
+            this.rb_rgb24_2.Text = "RGB24_bulb";
+            this.rb_rgb24_2.UseVisualStyleBackColor = true;
+            // 
+            // button_p3
+            // 
+            this.button_p3.Location = new System.Drawing.Point(31, 89);
+            this.button_p3.Name = "button_p3";
+            this.button_p3.Size = new System.Drawing.Size(122, 23);
+            this.button_p3.TabIndex = 18;
+            this.button_p3.Text = "Start P3 - first pixel only";
+            this.button_p3.UseVisualStyleBackColor = true;
+            this.button_p3.Click += new System.EventHandler(this.button_p3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 394);
+            this.ClientSize = new System.Drawing.Size(576, 402);
+            this.Controls.Add(this.button_p3);
+            this.Controls.Add(this.gb_type);
+            this.Controls.Add(this.textBox_lednr);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button_prg);
             this.Controls.Add(this.textBox_prg);
             this.Controls.Add(this.textBox_fps);
@@ -184,6 +255,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.gb_type.ResumeLayout(false);
+            this.gb_type.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,6 +278,12 @@
         private System.Windows.Forms.TextBox textBox_fps;
         private System.Windows.Forms.TextBox textBox_prg;
         private System.Windows.Forms.Button button_prg;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox_lednr;
+        private System.Windows.Forms.GroupBox gb_type;
+        private System.Windows.Forms.RadioButton rb_rgb24_2;
+        private System.Windows.Forms.RadioButton rb_rgb24_1;
+        private System.Windows.Forms.Button button_p3;
     }
 }
 

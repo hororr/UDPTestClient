@@ -11,10 +11,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace STUDPClient
 {
+    
+
     public partial class Form1 : Form
     {
+        enum networkCommands { CMD_RAW24 = 3, CMD_RAW24_2 = 4 }
         int programType;
         
         public Form1()
@@ -25,11 +30,20 @@ namespace STUDPClient
         private int counter = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (counter >= 900)
+ 
+            if (counter >= Int32.Parse(textBox_lednr.Text)*3)
                 counter = 0;
 
             //CreateUDPPacket();
-            UDPMessage msg = new UDPMessage(300, 3);
+            UDPMessage msg;
+
+            
+            if (rb_rgb24_1.Checked) {
+                msg = new UDPMessage(UInt32.Parse(textBox_lednr.Text), 3);
+            } else {
+                msg = new UDPMessage(UInt32.Parse(textBox_lednr.Text), 4);
+            }
+
             if (programType == 1)
             {
                 msg.data24[counter++] = 255;
@@ -38,6 +52,12 @@ namespace STUDPClient
                 msg.data24[counter++] = 255;
                 msg.data24[counter++] = 255;
                 msg.data24[counter++] = 255;
+            }
+            else if (programType == 3)
+            {
+                msg.data24[0] = 255;
+                msg.data24[1] = 255;
+                msg.data24[2] = 255;
             }
             msg.FinalizePacket();
             
@@ -141,6 +161,13 @@ namespace STUDPClient
             client.Send(msg.UDPpacket, msg.UDPpacket.Length, ip);
             client.Close(); 
 
+        }
+
+        private void button_p3_Click(object sender, EventArgs e)
+        {
+            setTimerInterval();
+            programType = 3;
+            timer1.Start();
         }
     }
 }

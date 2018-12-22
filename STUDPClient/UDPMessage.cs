@@ -42,7 +42,7 @@ namespace STUDPClient
             THeader.sequence++;
             leds = _leds;
             typeOfPacket = _type;
-            if (typeOfPacket == 3)
+            if  ( (typeOfPacket == 3) || (typeOfPacket == 4) )
             {
                 ledArrayLength = (int)(leds * 3);
                 data24 = new Byte[ledArrayLength];
