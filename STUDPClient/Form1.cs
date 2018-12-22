@@ -40,8 +40,10 @@ namespace STUDPClient
             
             if (rb_rgb24_1.Checked) {
                 msg = new UDPMessage(UInt32.Parse(textBox_lednr.Text), 3);
-            } else {
+            } else if (rb_rgb24_2.Checked)  {
                 msg = new UDPMessage(UInt32.Parse(textBox_lednr.Text), 4);
+            } else {
+                msg = new UDPMessage(UInt32.Parse(textBox_lednr.Text), 5);
             }
 
             if (programType == 1)

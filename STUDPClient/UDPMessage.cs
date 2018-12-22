@@ -47,6 +47,11 @@ namespace STUDPClient
                 ledArrayLength = (int)(leds * 3);
                 data24 = new Byte[ledArrayLength];
             }
+            else if (typeOfPacket == 5)
+            {
+                ledArrayLength = (int)(leds);
+                data24 = new Byte[ledArrayLength];
+            }
             else if (typeOfPacket == 50)
             {
                 ledArrayLength = 0;

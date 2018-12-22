@@ -49,6 +49,7 @@
             this.rb_rgb24_1 = new System.Windows.Forms.RadioButton();
             this.rb_rgb24_2 = new System.Windows.Forms.RadioButton();
             this.button_p3 = new System.Windows.Forms.Button();
+            this.rb_rgb8 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.gb_type.SuspendLayout();
             this.SuspendLayout();
@@ -189,11 +190,12 @@
             // 
             // gb_type
             // 
+            this.gb_type.Controls.Add(this.rb_rgb8);
             this.gb_type.Controls.Add(this.rb_rgb24_2);
             this.gb_type.Controls.Add(this.rb_rgb24_1);
             this.gb_type.Location = new System.Drawing.Point(357, 316);
             this.gb_type.Name = "gb_type";
-            this.gb_type.Size = new System.Drawing.Size(100, 71);
+            this.gb_type.Size = new System.Drawing.Size(100, 102);
             this.gb_type.TabIndex = 17;
             this.gb_type.TabStop = false;
             this.gb_type.Text = "RGB24_type";
@@ -216,7 +218,6 @@
             this.rb_rgb24_2.Name = "rb_rgb24_2";
             this.rb_rgb24_2.Size = new System.Drawing.Size(86, 17);
             this.rb_rgb24_2.TabIndex = 17;
-            this.rb_rgb24_2.TabStop = true;
             this.rb_rgb24_2.Text = "RGB24_bulb";
             this.rb_rgb24_2.UseVisualStyleBackColor = true;
             // 
@@ -226,15 +227,25 @@
             this.button_p3.Name = "button_p3";
             this.button_p3.Size = new System.Drawing.Size(122, 23);
             this.button_p3.TabIndex = 18;
-            this.button_p3.Text = "Start P3 - first pixel only";
+            this.button_p3.Text = "Start P3 - first 3B";
             this.button_p3.UseVisualStyleBackColor = true;
             this.button_p3.Click += new System.EventHandler(this.button_p3_Click);
+            // 
+            // rb_rgb8
+            // 
+            this.rb_rgb8.AutoSize = true;
+            this.rb_rgb8.Location = new System.Drawing.Point(5, 67);
+            this.rb_rgb8.Name = "rb_rgb8";
+            this.rb_rgb8.Size = new System.Drawing.Size(54, 17);
+            this.rb_rgb8.TabIndex = 18;
+            this.rb_rgb8.Text = "RGB8";
+            this.rb_rgb8.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 402);
+            this.ClientSize = new System.Drawing.Size(576, 430);
             this.Controls.Add(this.button_p3);
             this.Controls.Add(this.gb_type);
             this.Controls.Add(this.textBox_lednr);
@@ -284,6 +295,7 @@
         private System.Windows.Forms.RadioButton rb_rgb24_2;
         private System.Windows.Forms.RadioButton rb_rgb24_1;
         private System.Windows.Forms.Button button_p3;
+        private System.Windows.Forms.RadioButton rb_rgb8;
     }
 }
 
